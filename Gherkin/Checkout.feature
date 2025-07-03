@@ -9,30 +9,32 @@
             Esquema do Cenário: Cadastro com dados válidos
 
             Dado que estou na página de cadastro da EBAC-SHOP
-            Quando eu preencher os campos obrigatórios com os seguintes dados:
-            | Nome   | email   | Senha  | Endereço    | Telefone    |
-            | <Nome> | <email> | <senha> | <Endereço> | <Telefone>  |
-            E clicar no botão "Cadastrar"
-            Então deve apresentar a <mensagem> de cadastro realizado com sucesso
-            E eu devo ser redirecionado para a página de finalização da compra
+            Quando eu preencher os campos obrigatórios e clicar finalizar compra 
+            Então deve apresentar a <mensagem> de compra realizada com sucesso 
+
 
             Esquema do Cenário: Cadastro com e-mail inválido
 
             Dado que estou na página de cadastro da EBAC-SHOP
-            Quando eu preencher os campos obrigatórios com os seguintes dados:
-            | Nome        | E-mail   | Senha   | Endereço     | Telefone        |
-            | <Nome>      | <email>  | <senha> | <Endereço>   | <Telefone> |
-            E clicar no botão "Cadastrar"
-            Então devo ver uma <mensagem> de erro informando "E-mail inválido"
-            E o cadastro não deve ser concluído
+            Quando eu preencher o <email> inválido
+            Então o sistema deve exibir uma <mensagem> de email invalido 
+            E a compra não deve ser concluida 
 
             Esquema do Cenário: Cadastro com campos vazios
 
-            Dado que estou na página de cadastro da EBAC-SHOP<senha>
-            Quando eu deixar os seguintes campos obrigatórios vazios:
-            | Nome   | E-mail | Senha  |
-            | <Nome> |        |<senha> |
+            Dado que estou na página de cadastro da EBAC-SHOP 
+            Quando eu deixar os campos obrigatórios vazios e em finalizar compra
+            Então o sistema deve exibir uma <mensagem> de alerta
+            E a compra não deve ser concluida 
 
-E clicar no botão "Cadastrar"
-Então devo ver uma <mensagem> de alerta informando "Todos os campos obrigatórios devem ser preenchidos"
-E o cadastro não deve ser concluído
+            Exemplos: 
+            |Nome   | Sobrenome | Pais     | Endereço    | Cidade     | CEP         | Telefone       | Email                   | Mensagen                                     |
+            |"Jady" | "Santos"  | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "jadyyasmin@icloud.com" | "Compra Realizada com sucesso"               |
+            |"Jady" | "Santos"  | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "jadyyasminicloud.com"  | "Email inválido"                             |
+            |"Jady" | "Santos"  | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "jadyyasminicloudcom"   | "Email inválido"                             |     
+            |"Jady" | "Santos"  | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "@jadyyasminicloud.com" | "Email inválido"                             |      
+            |"Jady" | "Santos"  | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "jadyyasmini@cloud"     | "Email inválido"                             | 
+            |""     | "Santos"  | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "jadyyasmin@icloud.com" | "Existem campos obrigatórios não preenchidos"|                     
+            |"Jady" | "Santos"  | "Brasil" | "Rua Olavo" | ""         | "14022-322" | "1699730-9572" | "jadyyasmin@icloud.com" | "Existem campos obrigatórios não preenchidos"|
+            |"Jady" | ""        | "Brasil" | "Rua Olavo" | "Ribeirão" | "14022-322" | "1699730-9572" | "jadyyasmin@icloud.com" | "Existem campos obrigatórios não preenchidos"|
+                    

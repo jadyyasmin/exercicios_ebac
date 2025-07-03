@@ -8,26 +8,23 @@ Para depois inserir no carrinho
 Cenário: Configurar e adicionar produto ao carrinho
 
 Dado que estou na página de um produto
-Quando eu selecionar a cor do produto
-E selecionar o tamanho do produto
-E escolher uma quantidade entre 1 e 10
-E clicar no botão "Adicionar ao carrinho"
+Quando selecionar a cor, o tamanho e uma quantidade entre 1 e 10 de um produto
 Então o produto deve ser adicionado ao carrinho com as opções escolhidas
 
 Cenário: Validação de seleção obrigatória
 
 Dado que estou na página de um produto
 Quando eu tentar adicionar o produto ao carrinho sem selecionar cor, tamanho ou quantidade
-Então devo ver uma mensagem de erro informando que todas as seleções são obrigatórias
+Então o sistema deve exibir uma mensagem de erro informando que todas as seleções são obrigatórias
 
 Cenário: Limite de quantidade por venda
 
 Dado que estou na página de um produto
 Quando eu tentar escolher uma quantidade maior que 10
-Então devo ver uma mensagem de erro informando que o limite é de 10 unidades por venda
+Então o sistema deve exibir uma mensagem de erro informando que o limite é de 10 unidades por venda
 
 Cenário: Limpar seleção de produto
 
 Dado que fiz seleções de cor, tamanho e quantidade
 Quando eu clicar no botão "limpar"
-Então todas as seleções devem ser resetadas para o estado original
+Então o sistema deve resetar todas as seleções para o estado original
